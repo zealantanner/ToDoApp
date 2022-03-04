@@ -1,18 +1,18 @@
-// class User {
-//     constructor(id, lists) {
-//         this.id = id;
-//         this.lists = lists;
-//     }
-//     addNewList() {
-//         return true;
-//     }
-// }
-// class ToDoList {
-//     constructor(id, toDos) {
-//         this.toDos = toDos;
-//         this.id = id;
-//     }
-// }
+class User {
+    constructor(id, lists) {
+        this.id = id;
+        this.lists = lists;
+    }
+    addNewList() {
+        return true;
+    }
+}
+class ToDoList {
+    constructor(id, toDos) {
+        this.toDos = toDos;
+        this.id = id;
+    }
+}
 
 const IdInput = document.querySelector('#listName');
 const IdInput = document.querySelector('#listId');

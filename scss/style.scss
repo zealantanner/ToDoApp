@@ -2,6 +2,34 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li, button, input {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    background-color: black;
+    // color: white;
+    // background-color: black;
+}
+@mixin thing($color) {
+    background-color: $color;
+    border: double 4px blue;
+
+}
+
+body {
+    @include thing(green);
+    #contentContainer {
+        @include thing(red);
+        #list-box {
+            @include thing(green);
+            width:300px;
+            .list {
+                @include thing(red);
+                .list-title {
+                    @include thing(green);
+                }
+                .list-items {
+                    @include thing(green);
+                    .item {
+                        @include thing(red);
+                    }
+                }
+            }
+        }
+    }
 }
