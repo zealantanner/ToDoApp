@@ -6,32 +6,59 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li, button, input {
 
 body {
   background-color: green;
-  border: double 4px blue;
+  border-radius: 10px;
 }
 body #contentContainer {
   background-color: red;
-  border: double 4px blue;
+  border-radius: 10px;
 }
 body #contentContainer #list-box {
-  background-color: green;
-  border: double 4px blue;
-  width: 300px;
+  background-color: #101357;
+  padding: 30px;
 }
 body #contentContainer #list-box .list {
-  background-color: red;
-  border: double 4px blue;
-}
-body #contentContainer #list-box .list .list-title {
-  background-color: green;
-  border: double 4px blue;
-}
-body #contentContainer #list-box .list .list-items {
-  background-color: green;
-  border: double 4px blue;
+  color: #1EE8D7;
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
+  border: black solid 2px;
 }
 body #contentContainer #list-box .list .list-items .item {
+  background-color: white;
+  border: black solid 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  color: #112132;
+}
+body #contentContainer #list-box .list .list-items .item p {
+  max-width: 242px;
+  overflow-wrap: break-word;
+}
+body #contentContainer #list-box .list .list-items .item .buttons {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: end;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button {
+  border-radius: 5px;
+  padding: 2px;
+  background-color: white;
+  border: black solid 2px;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button img {
+  width: 20px;
+  height: 20px;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button:hover {
   background-color: red;
-  border: double 4px blue;
 }
 
 /*# sourceMappingURL=style.css.map */
