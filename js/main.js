@@ -1,80 +1,5 @@
-class Color {
-    constructor(...input) {
-        if(input.length == 3) {
-            for(let i = 0; i < 3; i++) {
-                input[i] = (255 < input[i]) ? 255 : input[i];
-                input[i] = (input[i] < 0) ? 0 : input[i];
-            }
-            this.r = input[0];
-            this.g = input[1];
-            this.b = input[2];
-            this.hex = Color.RGBToHex(this.r, this.g, this.b);
-        }
-        else if(input.length == 1) {
-            this.r = Color.hexToRGB(input[0]).r;
-            this.g = Color.hexToRGB(input[0]).g;
-            this.b = Color.hexToRGB(input[0]).b;
-            this.hex = Color.RGBToHex(this.r, this.g, this.b);
-        }
-        else {
-            throw new Error('Invalid color');  
-        }
-    }
-    get Text() {
-        return {
-            RGB: `rgb(${this.r}, ${this.g}, ${this.b})`,
-            hex: `${this.hex}`
-        }
-    }
-    static RGBToHex(r, g, b) {
-        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-    }
-    static hexToRGB(hex) {
-        if (hex.length != 6 && hex.length != 7) {
-            throw new Error('Invalid hex code');  
-        }
-        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16),
-            text: `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`
-        } : [r,g,b];
-    }
-    shade(...amt) {
-        if(amt.length == 1) {
-            return new Color(parseInt(this.r + amt[0]), parseInt(this.g + amt[0]), parseInt(this.b + amt[0]));
-        }
-        else if(amt.length == 3) {
-            return new Color(parseInt(this.r + amt[0]), parseInt(this.g + amt[1]), parseInt(this.b + amt[2]));
-        }
-        else {
-            throw new Error('Invalid color');  
-        }
-    }
-}
-function getUniqueID(prefix = "ID-", str = getUniqueID("", Math.random())) {
-    if(str == "") {
-        str = getUniqueID();
-    }
-    let hash = 0;
-    str = String(str); 
-    for (let i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    let id = prefix;
-    for (let i = 0; i < 3; i++) {
-        let value = (hash >> (i * 8)) & 0xFF;
-        id += ('00' + value.toString(36)).substr(-2);
-    }
-    return id;
-}
-function textAreaAdjust(element) {
-    element.style.height = "1px";
-    element.style.height = (element.scrollHeight-1)+"px";
-}
 class List {
-    constructor(title = "Untitled List", id = getUniqueID("list-"), items = [new Item(this.id)]) {
+    constructor(title = "List", id = getUniqueID("list-"), items) {
         this.title = title;
         this.id = id;
         this.items = items;
@@ -93,7 +18,6 @@ class List {
         </div>
     </div>
     <ul class="list-items">
-        ${this.items[0].Html}
     </ul>
     <button onclick="Item.add(this)" class="add-item-btn">+</button>
 </div>
@@ -140,7 +64,7 @@ class List {
     }
 }
 class Item {
-    constructor(itemText = "Untitled Item", listId, index = 0, id = getUniqueID()) {
+    constructor(itemText = "", listId, index = 0, id = getUniqueID()) {
         this.itemText = itemText;
         this.listId = listId;
         this.index = index;
@@ -204,22 +128,47 @@ class Item {
 }
 
 
+function getUniqueID(prefix = "ID-", str = getUniqueID("", Math.random())) {
+    if(str == "") {
+        str = getUniqueID();
+    }
+    let hash = 0;
+    str = String(str); 
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    let id = prefix;
+    for (let i = 0; i < 3; i++) {
+        let value = (hash >> (i * 8)) & 0xFF;
+        id += ('00' + value.toString(36)).substr(-2);
+    }
+    return id;
+}
+
+function textAreaAdjust(element) {
+    element.style.height = "1px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+
 
 const box = document.querySelector('#list-box')
 const theKey = 'key'
-let thing = (retrieve())? retrieve() : box.innerHTML;
+
+if(retrieve() != null) {
+    display()
+}
+
 
 function display() {
     console.log("display")
-    console.log(thing)
 
-    box.innerHTML = thing
+    box.innerHTML = retrieve()
 }
 
 
 function save() {
     console.log("save")
-    localStorage.setItem(theKey, JSON.stringify(thing));
+    localStorage.setItem(theKey, JSON.stringify(box.innerHTML));
 }
 
 function retrieve() {

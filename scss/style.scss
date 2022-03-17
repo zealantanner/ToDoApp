@@ -34,18 +34,24 @@ button {
 
 
 body {
+    height: 100vh;
+    background-color: $dark;
     #contentContainer {
+        overflow-x: scroll;
         #list-box {
             background-color: $dark;
             padding: 30px;
             overflow-x: hidden;
             display: flex;
+            flex-flow: wrap;
+            align-items: flex-start;
             .list {
                 width: 300px;
                 max-height: 90vh;
                 height: min-content;
                 color: $color5;
                 margin-left: 5px;
+                margin-top: 15px;
                 padding: 10px;
                 border-radius: 10px;
                 background-color: $color1;
@@ -129,7 +135,7 @@ body {
                                 width: 30px;
                                 height: 30px;
                                 margin: 2px;
-                                border: 0;
+                                border: 1;
                                 img {
                                     width: 20px;
                                     height: 20px;
@@ -173,9 +179,10 @@ body {
             }
         }
         #add-list-btn {
-            width: 160px;
+            width: 170px;
             height: 50px;
             font-size: 2rem;
+            margin: 40px;
             &:hover {
                 background: $color3;
             }

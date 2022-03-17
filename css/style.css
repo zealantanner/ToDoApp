@@ -12,11 +12,20 @@ button {
   border-radius: 5px;
 }
 
+body {
+  height: 100vh;
+  background-color: #101357;
+}
+body #contentContainer {
+  overflow-x: scroll;
+}
 body #contentContainer #list-box {
   background-color: #101357;
   padding: 30px;
   overflow-x: hidden;
   display: flex;
+  flex-flow: wrap;
+  align-items: flex-start;
 }
 body #contentContainer #list-box .list {
   width: 300px;
@@ -24,6 +33,7 @@ body #contentContainer #list-box .list {
   height: min-content;
   color: #1EE8D7;
   margin-left: 5px;
+  margin-top: 15px;
   padding: 10px;
   border-radius: 10px;
   background-color: #1E23E8;
@@ -119,7 +129,7 @@ body #contentContainer #list-box .list .list-items .item .buttons button {
   width: 30px;
   height: 30px;
   margin: 2px;
-  border: 0;
+  border: 1;
 }
 body #contentContainer #list-box .list .list-items .item .buttons button img {
   width: 20px;
@@ -158,9 +168,10 @@ body #contentContainer #list-box .list .add-item-btn:hover {
   background: #2889DB;
 }
 body #contentContainer #add-list-btn {
-  width: 160px;
+  width: 170px;
   height: 50px;
   font-size: 2rem;
+  margin: 40px;
 }
 body #contentContainer #add-list-btn:hover {
   background: #2889DB;
