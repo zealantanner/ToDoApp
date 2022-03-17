@@ -91,7 +91,6 @@ class Item {
         $(that).parent().parent().prepend(`
         <textarea onclick="textAreaAdjust(this)" onkeyup="textAreaAdjust(this)" class="item-text">${text}</textarea>
         `);
-
         $(that).parent().parent().children('.item-text')[0].focus()
         $(that).parent().prepend(`
         <button onclick="Item.save(this)" class="save-btn">
@@ -103,13 +102,11 @@ class Item {
     static save(that) {
         console.log("save");
         let textBox = $(that).parent().parent().children('.item-text')[0];
-        
         let text = textBox.value;
         textBox.remove();
         $(that).parent().parent().prepend(`
         <p class="item-text">${text}</p>
         `);
-        
         $(that).parent().prepend(`
         <button onclick="Item.edit(this)" class="edit-btn">
             <img src="images/edit.svg">
@@ -150,7 +147,6 @@ function textAreaAdjust(element) {
     element.style.height = (element.scrollHeight)+"px";
 }
 
-
 const box = document.querySelector('#list-box')
 const theKey = 'key'
 
@@ -158,13 +154,10 @@ if(retrieve() != null) {
     display()
 }
 
-
 function display() {
     console.log("display")
-
     box.innerHTML = retrieve()
 }
-
 
 function save() {
     console.log("save")
@@ -175,5 +168,3 @@ function retrieve() {
     console.log("retrieve")
     return JSON.parse(localStorage.getItem(theKey));
 }
-// console.log(JSON.parse(localStorage.getItem(theKey)))
-// localStorage.setItem(theKey, JSON.stringify(null));
