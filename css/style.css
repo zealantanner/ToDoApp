@@ -4,4 +4,166 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li, button, input, textarea 
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+  cursor: pointer;
+  padding: 2px;
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 5px;
+}
+
+body #contentContainer #list-box {
+  background-color: #101357;
+  padding: 30px;
+  overflow-x: hidden;
+  display: flex;
+}
+body #contentContainer #list-box .list {
+  width: 300px;
+  max-height: 90vh;
+  height: min-content;
+  color: #1EE8D7;
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #1E23E8;
+  border: black solid 2px;
+}
+body #contentContainer #list-box .list textarea {
+  overflow: hidden;
+  resize: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border: solid 2px #101357;
+  outline: none;
+  min-height: 0;
+}
+body #contentContainer #list-box .list .list-top {
+  display: flex;
+  justify-content: space-between;
+}
+body #contentContainer #list-box .list .list-top .list-title {
+  max-width: 200px;
+  overflow-wrap: break-word;
+  font-size: 2rem;
+  align-self: flex-start;
+  padding: 0;
+}
+body #contentContainer #list-box .list .list-top .buttons {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+body #contentContainer #list-box .list .list-top .buttons button {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 2px;
+  background-color: white;
+  border: black solid 2px;
+  width: 45px;
+  height: 45px;
+}
+body #contentContainer #list-box .list .list-top .buttons button img {
+  width: 30px;
+  height: 30px;
+}
+body #contentContainer #list-box .list .list-top .buttons button:hover {
+  background-color: red;
+}
+body #contentContainer #list-box .list .list-top .buttons button:last-child {
+  margin-left: 5px;
+}
+body #contentContainer #list-box .list .list-items {
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+body #contentContainer #list-box .list .list-items .item {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+body #contentContainer #list-box .list .list-items .item .item-text {
+  color: #1F5CF2;
+  min-width: 225px;
+  overflow-wrap: break-word;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+body #contentContainer #list-box .list .list-items .item textarea {
+  overflow: hidden;
+  resize: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  border: solid 2px #101357;
+  outline: none;
+  min-height: 60px;
+}
+body #contentContainer #list-box .list .list-items .item .buttons {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: end;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  border: 0;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button img {
+  width: 20px;
+  height: 20px;
+}
+body #contentContainer #list-box .list .list-items .item .buttons button:hover {
+  background-color: red;
+}
+body #contentContainer #list-box .list .list-items .item:first-child {
+  margin-top: 0;
+}
+body #contentContainer #list-box .list .list-items .item:last-child {
+  margin-bottom: 0;
+}
+body #contentContainer #list-box .list ::-webkit-scrollbar {
+  width: 10px;
+}
+body #contentContainer #list-box .list ::-webkit-scrollbar-track {
+  margin: 5px 0;
+  background: #1E23E8;
+}
+body #contentContainer #list-box .list ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #1F5CF2;
+}
+body #contentContainer #list-box .list ::-webkit-scrollbar-thumb:hover {
+  background: #2889DB;
+}
+body #contentContainer #list-box .list .add-item-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  border: 0;
+}
+body #contentContainer #list-box .list .add-item-btn:hover {
+  background: #2889DB;
+}
+body #contentContainer #add-list-btn {
+  width: 160px;
+  height: 50px;
+  font-size: 2rem;
+}
+body #contentContainer #add-list-btn:hover {
+  background: #2889DB;
+}
+
 /*# sourceMappingURL=style.css.map */

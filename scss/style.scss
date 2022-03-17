@@ -2,5 +2,183 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li, button, input, textarea 
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    // color: white;
+    // background-color: black;
 }
 
+$dark:   #101357;
+$color1: #1E23E8;
+$color2: #1F5CF2;
+$color3: #2889DB;
+$color4: #1FCBF2;
+$color5: #1EE8D7;
+@mixin textBox() {
+    overflow: hidden;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    border: solid 2px $dark;
+    outline: none;
+}
+@mixin button($color, $border, $bRadius, $pad) {
+    cursor: pointer;
+    padding: $pad;
+    background-color: $color;
+    border: $border solid 2px;
+    border-radius: $bRadius;
+}
+button {
+    @include button(white, black, 5px, 2px);
+}
+
+
+
+body {
+    #contentContainer {
+        #list-box {
+            background-color: $dark;
+            padding: 30px;
+            overflow-x: hidden;
+            display: flex;
+            .list {
+                width: 300px;
+                max-height: 90vh;
+                height: min-content;
+                color: $color5;
+                margin-left: 5px;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: $color1;
+                border: black solid 2px;
+                textarea {
+                    @include textBox();
+                    min-height: 0;
+                }
+                .list-top {
+                    display: flex;
+                    justify-content: space-between;
+                    .list-title {
+                        max-width: 200px;
+                        overflow-wrap: break-word;
+                        font-size: 2rem;
+                        align-self: flex-start;
+                        padding: 0;
+                    }
+                    .buttons {
+                        display: flex;
+                        flex-flow: wrap;
+                        justify-content: end;
+                        margin: 0;
+                        padding: 0;
+                        button {
+                            cursor: pointer;
+                            border-radius: 10px;
+                            padding: 2px;
+                            background-color: white;
+                            border: black solid 2px;
+                            width: 45px;
+                            height: 45px;
+                            img {
+                                width: 30px;
+                                height: 30px;
+                            }
+                            &:hover {
+                                background-color: red;
+                            }
+                        }
+                        button:last-child {
+                            margin-left: 5px;
+                        }
+                        button:first-child {
+                        }
+                    }
+                }
+                .list-items {
+                    max-height: 50vh;
+                    overflow-y: auto;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    .item {
+                        background-color: white;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px;
+                        border-radius: 10px;
+                        margin: 10px 0;
+                        .item-text{
+                            color: $color2;
+                            min-width: 225px;
+                            overflow-wrap: break-word;
+                            font-size: 1rem;
+                            align-self: flex-start;
+                        }
+                        textarea {
+                            @include textBox();
+                            min-height: 60px;
+                        }
+                        .buttons {
+                            display: flex;
+                            flex-flow: wrap;
+                            justify-content: end;
+                            button {
+                                cursor: pointer;
+                                border-radius: 5px;
+                                padding: 2px;
+                                background-color: white;
+                                width: 30px;
+                                height: 30px;
+                                margin: 2px;
+                                border: 0;
+                                img {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                                &:hover {
+                                    background-color: red;
+                                }
+                            }
+                        }
+                    }
+                    .item:first-child {
+                        margin-top:  0;
+                    }
+                    .item:last-child {
+                        margin-bottom:  0;
+                    }
+                }
+                ::-webkit-scrollbar {
+                    width: 10px;
+                }
+                ::-webkit-scrollbar-track {
+                    margin: 5px 0;
+                    background: $color1;
+                }
+                ::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    background: $color2;
+                    &:hover {
+                        background: $color3;
+                    }
+                }
+                .add-item-btn {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 2rem;
+                    border: 0;
+                    &:hover {
+                        background: $color3;
+                    }
+                }
+            }
+        }
+        #add-list-btn {
+            width: 160px;
+            height: 50px;
+            font-size: 2rem;
+            &:hover {
+                background: $color3;
+            }
+        }
+    }
+}
