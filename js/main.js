@@ -9,6 +9,9 @@ class List {
     <div class="list-top">
         <h1 class="list-title">${this.title}</h1>
         <div class="buttons">
+            <button onclick="List.clear(this)" class="clear-btn">
+                <img src="images/clear.svg">
+            </button>
             <button onclick="List.edit(this)" class="edit-btn">
                 <img src="images/edit.svg">
             </button>
