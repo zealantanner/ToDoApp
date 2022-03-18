@@ -66,8 +66,11 @@ class List {
         console.log("add");
         $('#list-box').prepend(new List().Html)
     }
-    static clear() {
-        $('.checked').parent().parent().parent().remove()
+    static clear(that) {
+        let List = $(that).parent().parent().parent();
+        // console.log($(that).parent().parent().parent().children('.checked'))
+        console.log(List.children('.list-items').children('.item').children('.buttons').children('.check-btn').children('.checked').parent().parent().parent().hide())
+        // $('.checked').parent().parent().parent().parent().parent().remove();
     }
 }
 class Item {
