@@ -8,10 +8,44 @@
         <script src="https://kit.fontawesome.com/b93323df79.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body onclick="save()" onmousedown="save()">
+    <!-- <body onclick="save()" onmousedown="save()"> -->
+    <body>
         <div id="contentContainer">
             <button onclick="List.add()" id="add-list-btn">+ Add List</button>
             <div id="list-box">
+                <div class="list">
+                    <div class="list-top">
+                        <h1 class="list-title">List</h1>
+                        <div class="buttons">
+                            <button onclick="List.clear(this)" class="clear-btn">
+                                <img src="images/clear.svg">
+                            </button>
+                            <button onclick="List.edit(this)" class="edit-btn">
+                                <img src="images/edit.svg">
+                            </button>
+                            <button onclick="List.delete(this)" class="delete-btn">
+                                <img src="images/delete.svg">
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="list-items">
+                        <li class="item">
+                            <p class="item-text">Item</p>
+                            <div class="buttons">
+                                <button onclick="Item.edit(this)" class="edit-btn">
+                                    <img src="images/edit.svg">
+                                </button>
+                                <button onclick="Item.check(this)" class="check-btn">
+                                    <img class="checked" src="images/check.svg">
+                                </button>
+                                <button onclick="Item.delete(this)" class="delete-btn">
+                                    <img src="images/delete.svg">
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <button onclick="Item.add(this)" class="add-item-btn">+</button>
+                </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

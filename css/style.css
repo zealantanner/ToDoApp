@@ -82,8 +82,9 @@ body #contentContainer #list-box .list .list-top .buttons button img {
 body #contentContainer #list-box .list .list-top .buttons button:hover {
   background-color: red;
 }
-body #contentContainer #list-box .list .list-top .buttons button:last-child {
-  margin-left: 5px;
+body #contentContainer #list-box .list .list-top .buttons .clear-btn img {
+  width: 45px;
+  height: 45px;
 }
 body #contentContainer #list-box .list .list-items {
   max-height: 50vh;
@@ -102,10 +103,10 @@ body #contentContainer #list-box .list .list-items .item {
 }
 body #contentContainer #list-box .list .list-items .item .item-text {
   color: #1F5CF2;
-  min-width: 225px;
   overflow-wrap: break-word;
   font-size: 1rem;
   align-self: flex-start;
+  max-width: 235px;
 }
 body #contentContainer #list-box .list .list-items .item textarea {
   overflow: hidden;
@@ -114,7 +115,7 @@ body #contentContainer #list-box .list .list-items .item textarea {
   font-weight: bolder;
   border: solid 2px #101357;
   outline: none;
-  min-height: 60px;
+  min-width: 235px;
 }
 body #contentContainer #list-box .list .list-items .item .buttons {
   display: flex;

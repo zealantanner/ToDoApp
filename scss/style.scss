@@ -92,10 +92,9 @@ body {
                                 background-color: red;
                             }
                         }
-                        button:last-child {
-                            margin-left: 5px;
-                        }
-                        button:first-child {
+                        .clear-btn img{
+                            width: 45px;
+                            height: 45px;
                         }
                     }
                 }
@@ -114,14 +113,14 @@ body {
                         margin: 10px 0;
                         .item-text{
                             color: $color2;
-                            min-width: 225px;
                             overflow-wrap: break-word;
                             font-size: 1rem;
                             align-self: flex-start;
+                            max-width: 235px;
                         }
                         textarea {
                             @include textBox();
-                            min-height: 60px;
+                            min-width: 235px;
                         }
                         .buttons {
                             display: flex;

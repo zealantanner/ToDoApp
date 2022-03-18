@@ -23,6 +23,7 @@ class List {
 </div>
     `}
     static edit(that) {
+        console.log("edit");
         let textBox = $(that).parent().parent().children('.list-title')[0];
         let text = textBox.innerText;
         textBox.remove();
@@ -37,9 +38,9 @@ class List {
         `)
         $(that).remove()
         textAreaAdjust(textBox)
-        console.log("edit");
     }
     static save(that) {
+        console.log("save");
         let textBox = $(that).parent().parent().children('.list-title')[0];
         let text = textBox.value;
         textBox.remove();
@@ -53,14 +54,17 @@ class List {
         </button>
         `)
         $(that).remove();
-        console.log("save");
     }
     static delete(that) {
-        $(that).parent().parent().parent().remove();
         console.log("delete");
+        $(that).parent().parent().parent().remove();
     }
     static add() {
+        console.log("add");
         $('#list-box').prepend(new List().Html)
+    }
+    static clear() {
+        $('.checked').parent().parent().parent().remove()
     }
 }
 class Item {
@@ -69,6 +73,7 @@ class Item {
         this.listId = listId;
         this.index = index;
         this.id = id;
+        this.checked = true
     }
     get Html() {return `
 <li class="item">
@@ -76,6 +81,9 @@ class Item {
     <div class="buttons">
         <button onclick="Item.edit(this)" class="edit-btn">
             <img src="images/edit.svg">
+        </button>
+        <button onclick="Item.check(this)" class="check-btn">
+
         </button>
         <button onclick="Item.delete(this)" class="delete-btn">
             <img src="images/delete.svg">
@@ -117,13 +125,26 @@ class Item {
     static delete(that) {
         console.log("delete");
         $(that).parent().parent().remove();
+        save()
     }
     static add(that) {
         console.log("add");
         $(that).prev().append(new Item("").Html)
+        save()
+    }
+    static check(that) {
+        console.log("check");
+        let checkbox = $(that).children()
+        if($(that).children()[0]) {
+            console.log("off");
+            checkbox.remove()
+        } else {
+            console.log("on");
+            $(that).prepend(`<img class="checked" src="images/check.svg">`)
+        }
+        save()
     }
 }
-
 
 function getUniqueID(prefix = "ID-", str = getUniqueID("", Math.random())) {
     if(str == "") {
